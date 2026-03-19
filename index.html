@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>MovieHub - Movie Listing & Rating Platform</title>
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='40' fill='%23ffd700'/><path d='M30 40 L70 50 L30 60 Z' fill='%231a0d0d'/></svg>">
+
+<link rel="stylesheet" href="styles.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+
+<!-- ================= LOGIN ================= -->
+<div id="loginBox" class="hero" style="display:none;">
+<div class="form-box">
+<h2>Login to MovieHub</h2>
+
+<input id="username" placeholder="Username">
+<input id="password" type="password" placeholder="Password">
+
+<button onclick="login()">Login</button>
+</div>
+</div>
+
+
+<!-- ================= MAIN APP ================= -->
+<div id="mainApp">
+
+<!-- ================= NAVBAR ================= -->
+<nav class="navbar">
+<div class="navbar-container">
+
+<div class="navbar-logo">
+<i class="fas fa-film"></i>
+<span>MovieHub</span>
+</div>
+
+<ul class="nav-menu">
+<li><a href="#home">Home</a></li>
+<li><a href="#movies">Movies</a></li>
+<li><a href="#trending">Trending</a></li>
+<li><a href="#hollywood">Hollywood</a></li>
+<li><a href="#bollywood">Bollywood</a></li>
+<li><a href="#tollywood">Tollywood</a></li>
+<li><a href="#ollywood">Ollywood</a></li>
+<li><a href="#watchlist">Watchlist</a></li>
+<li><a href="#favorites">Favorites</a></li>
+</ul>
+
+<div class="navbar-search">
+<input type="text" id="searchInput" placeholder="Search movies...">
+<i class="fas fa-search"></i>
+</div>
+
+<div class="navbar-right">
+<button onclick="logout()">Logout</button>
+</div>
+
+</div>
+</nav>
+
+<!-- ================= HERO ================= -->
+<section class="hero" id="home">
+<div class="hero-content">
+<h1 class="hero-title">WELCOME TO MOVIEHUB</h1>
+<p class="hero-description">
+Discover trending movies, watch trailers, explore Hollywood, Bollywood, Tollywood and build your personal watchlist.
+</p>
+
+<a href="#movies">
+<button style="margin-top:20px;">🎬 Go to Movies</button>
+</a>
+
+</div>
+</section>
+
+<!-- ================= MOVIE SECTIONS ================= -->
+
+<section class="movies-section" id="movies">
+<h2>Featured Movies</h2>
+<div class="movies-grid" id="moviesGrid"></div>
+</section>
+
+<section class="movies-section" id="trending">
+<h2>Trending Movies 🔥</h2>
+<div class="movies-grid" id="trendingGrid"></div>
+</section>
+
+<section class="movies-section" id="hollywood">
+<h2>Hollywood Movies</h2>
+<div class="movies-grid" id="hollywoodGrid"></div>
+</section>
+
+<section class="movies-section" id="bollywood">
+<h2>Bollywood Movies</h2>
+<div class="movies-grid" id="bollywoodGrid"></div>
+</section>
+
+<section class="movies-section" id="tollywood">
+<h2>Tollywood Movies</h2>
+<div class="movies-grid" id="tollywoodGrid"></div>
+</section>
+
+<section class="movies-section" id="ollywood">
+<h2>Ollywood Movies</h2>
+<div class="movies-grid" id="ollywoodGrid"></div>
+</section>
+
+<!-- ================= WATCHLIST ================= -->
+<section class="movies-section" id="watchlist">
+
+<!-- Header + Button Row -->
+<div class="section-header" style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px;">
+
+<h2>Your Watchlist ❤️</h2>
+
+<button id="clearWatchlistBtn" style="
+padding:10px 16px;
+border:none;
+border-radius:8px;
+background:#ff4d4d;
+color:white;
+cursor:pointer;
+font-weight:500;
+transition:0.3s;
+">
+🧹 Clear Watchlist
+</button>
+
+</div>
+
+<div class="movies-grid" id="watchlistGrid"></div>
+</section>
+
+<!-- ================= FAVORITES ================= -->
+<section class="movies-section" id="favorites">
+<h2>Your Favorites ⭐</h2>
+<div class="movies-grid" id="favoritesGrid"></div>
+</section>
+
+<!-- ================= MODAL ================= -->
+<div id="trailerModal" class="modal">
+<div class="modal-content">
+<span id="closeTrailer">✖</span>
+<iframe id="trailerVideo" width="800" height="450"
+src=""
+allow="autoplay; encrypted-media"
+allowfullscreen>
+</iframe>
+</div>
+</div>
+
+<!-- ================= FOOTER ================= -->
+<footer class="footer">
+
+<div style="margin-bottom:15px;">
+<a href="#" style="margin:10px; color:white;">Privacy Policy</a>
+<a href="#" style="margin:10px; color:white;">Terms & Conditions</a>
+<a href="#" style="margin:10px; color:white;">Help Center</a>
+</div>
+
+<div style="margin-bottom:15px;">
+<p>Follow Me</p>
+
+<a href="#" style="margin:10px; font-size:20px; color:white;">
+<i class="fab fa-twitter"></i>
+</a>
+
+<a href="#" style="margin:10px; font-size:20px; color:white;">
+<i class="fab fa-telegram"></i>
+</a>
+
+<a href="#" style="margin:10px; font-size:20px; color:white;">
+<i class="fab fa-instagram"></i>
+</a>
+
+<a href="#" style="margin:10px; font-size:20px; color:white;">
+<i class="fab fa-youtube"></i>
+</a>
+
+<a href="#" style="margin:10px; font-size:20px; color:white;">
+<i class="fab fa-facebook"></i>
+</a>
+
+</div>
+
+<p>© 2026 MovieHub — Movie listing & rating platform</p>
+
+</footer>
+
+</div>
+
+<script src="script.js"></script>
+<script src="app.js" defer></script>
+
+</body>
+</html>
